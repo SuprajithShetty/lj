@@ -1,0 +1,106 @@
+package circle;
+
+public class circle {
+	private double r;
+	
+	public circle (double r) {
+		this.r=r;
+	}
+	
+	public double carea() {
+		return 3.14*r*r;
+	}
+
+}
+
+package square;
+
+//import java.util.Scanner;
+
+public class square {
+	private int s;
+	
+	public square(int s2) {
+		this.s=s2;
+	}
+	
+	public int sarea() {
+		return s*s;
+	}
+	
+}
+
+package triangle;
+
+public class triangle {
+	private double l,b;
+	
+	public triangle(double l,double b) {
+		this.l=l;
+		this.b=b;
+	}
+	
+	public double tarea() {
+		return 0.5*l*b;
+	}
+
+}
+
+
+import lab2.*;
+
+import square.square;
+import triangle.triangle;
+
+import java.util.Scanner;
+
+import circle.circle;
+
+public class Main {
+	public static void main(String[]  arg) {
+	
+		Scanner s = new Scanner(System.in);
+		System.out.println("Menu "
+				+ "1.Circle "
+				+ "2.Square "
+				+ "3.Triangle "
+				+ "4.Exit");
+		System.out.println("Enter your choice");
+		int choice = s.nextInt();
+		
+		if (choice == 1) {
+			System.out.println("Enter the radius");
+			int r = s.nextInt();
+			
+			circle c = new circle(r);
+			System.out.println("The area of the circle is "+ c.carea());
+		}
+		
+		else if (choice == 2) {
+			System.out.println("Enter the side");
+			int si = s.nextInt();
+			
+			square squ = new square(si);
+			System.out.println("The area of the square is "+ squ.sarea());
+			
+		}
+		
+		else if (choice == 3) {
+			System.out.println("Enter the length and breath of the triangle");
+			int l = s.nextInt();
+			int b = s.nextInt();
+			
+			triangle ti = new triangle(l,b);
+			System.out.println("The area of the triangle is "+ ti.tarea());
+		
+		}
+		else {
+			System.out.println("Invalid option try again");
+		}
+		
+		
+		
+			
+		
+	}
+}

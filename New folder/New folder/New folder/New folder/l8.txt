@@ -1,0 +1,71 @@
+package generic;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.List;
+import java.util.Collections;
+
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		List<Number> numbers= new ArrayList<>();
+		
+		while(true) {
+			System.out.println("Menu");
+			System.out.println("1.Add Integer");
+			System.out.println("2.Add Double");
+			System.out.println("3.Calculate Sum");
+			System.out.println("4.Sort");
+			System.out.println("5.Exit");
+			System.out.println("Enter your choice");
+			
+			int choice =sc.nextInt();
+			
+			switch(choice) {
+			case 1:{
+				System.out.println("Enter an Integer: ");
+				int intValue = sc.nextInt();
+				numbers.add(intValue);
+				break;
+			}
+			case 2:{
+				System.out.println("Enter the Double: ");
+				double doublevalue = sc.nextDouble();
+				numbers.add(doublevalue);
+				break;
+			}
+			case 3:{
+				double sum = addition(numbers);
+				System.out.println("Sum of two numbers are "+sum);
+				break;
+			}
+			case 4:{
+				sorted(numbers);
+				System.out.println("Sorted list: " + numbers);
+				break;
+			}
+			case 5:{
+				System.exit(0);
+			}
+			default:{
+				System.out.println("Invalid Choice. Please Try again");
+			}
+			
+			}	
+		}	
+	}
+	
+	public static double addition(List<? extends Number> numbers) {
+		double sum=0;
+		for (Number number: numbers) {
+			sum+=number.doubleValue();
+		}
+		return sum;
+	}
+	
+	public static void sorted(List<? extends Number> numbers) {
+		Collections.sort(numbers,(a,b) -> Double.compare(a.doubleValue(), b.doubleValue()));
+	}
+}

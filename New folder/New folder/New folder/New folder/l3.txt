@@ -1,0 +1,66 @@
+
+import java.util.*;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Menu "
+				+ "1.Inkjet Printer "
+				+ "2.Dot Printer "
+				+ "3.Exit ");
+		
+		System.out.println("Enter your choice");
+		
+		int choice = sc.nextInt();
+		
+		switch(choice) {
+			
+			case 1:{
+				Printer p=new Inkjet();
+				p.display();
+				p.configuration();
+				break;
+			}
+			case 2:{
+				Printer pi=new Dotprinter();
+				pi.display();
+				pi.configuration();
+				break;
+			}
+			case 3:{
+				break;
+			}
+		}	
+	}
+}
+
+
+package Test;
+
+public abstract class Printer {
+	public abstract void display();
+	public abstract void configuration();
+}
+
+class Inkjet extends Printer{
+	public void display() {
+		System.out.println("This is the Inkjetprinter");
+	}
+	public void configuration() {
+		System.out.println("The configuration of the inkjet printer is: 30px*40px");
+	}
+	
+}
+
+
+class Dotprinter extends Printer {
+	public void display() {
+		System.out.println("This is the DotPrinter");
+	}
+	public void configuration() {
+		System.out.println("The configuration of the dot printer is: 10px*15px");
+	}
+}
